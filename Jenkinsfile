@@ -7,7 +7,7 @@ pipeline {
           stages {
                 stage('compile') {
             steps {
-                sh 'mvn compile'
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubtoken', url: 'https://github.com/Achhay/Boardgame.git']])
             }
         }
                 stage('test') {
